@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: html
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: html
   template:
     metadata:
       labels:
-        app: my-app
+        app: html
     spec:
       containers:
-      - name: my-app
-        image: arunmagi/html-app
+      - name: html
+        image: kishoren27/my-html-app
         ports:
         - containerPort: 80
 ---
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-app
+  name: html
 spec:
   selector:
-    app: my-app
+    app: html
   ports:
   - protocol: TCP
     port: 80
